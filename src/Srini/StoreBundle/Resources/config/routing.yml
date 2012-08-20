@@ -1,0 +1,17 @@
+#SriniStoreBundle_creaproduct:
+#    pattern:  /product/create
+#    defaults: { _controller: SriniStoreBundle:Default:create }
+#
+#_showproduct:
+#    pattern:  /product/{id}
+#    defaults: { _controller: SriniStoreBundle:Default:show }
+    
+SriniStoreBundle_category:
+    resource: "@SriniStoreBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+SriniStoreBundle_product:
+    resource: "@SriniStoreBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+      

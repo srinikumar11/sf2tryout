@@ -1,3 +1,11 @@
+SriniTaskBundle:
+    resource: "@SriniTaskBundle/Resources/config/routing.yml"
+    prefix:   /
+
+SriniStoreBundle:
+    resource: "@SriniStoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 SriniBlogBundle:
     resource: "@SriniBlogBundle/Resources/config/routing.yml"
     prefix:   /
@@ -6,27 +14,27 @@ SriniBlogBundle:
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #   prefix:   /_internal
-_welcome:
-    pattern:  /
-    defaults: { _controller: AcmeDemoBundle:Welcome:index }
+#_welcome:
+#    pattern:  /
+#    defaults: { _controller: SriniBlogBundle:Default:index,first_name:Srinivasan,last_name:Kumar,color:red }
 
-_demo_secured:
-    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
-    type:     annotation
-
-_demo:
-    resource: "@AcmeDemoBundle/Controller/DemoController.php"
-    type:     annotation
-    prefix:   /demo
-
+#_demo_secured:
+#    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
+#    type:     annotation
+#
+#_demo:
+#    resource: "@AcmeDemoBundle/Controller/DemoController.php"
+#    type:     annotation
+#    prefix:   /demo
+#
 _wdt:
     resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
     prefix:   /_wdt
-
+#
 _profiler:
     resource: "@WebProfilerBundle/Resources/config/routing/profiler.xml"
     prefix:   /_profiler
-
+#
 _configurator:
     resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"
     prefix:   /_configurator

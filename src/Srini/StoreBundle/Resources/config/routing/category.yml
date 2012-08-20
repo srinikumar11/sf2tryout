@@ -1,0 +1,10 @@
+category:
+    pattern:  /
+    defaults: { _controller: "SriniStoreBundle:Category:index" }
+
+category_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SriniStoreBundle:Category:show" }
+
+
+

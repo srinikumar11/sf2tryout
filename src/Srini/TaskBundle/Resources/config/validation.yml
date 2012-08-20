@@ -1,0 +1,7 @@
+Srini\TaskBundle\Task:
+  properties:
+    task:
+      - NotBlank: ~
+    dueDate:
+      - NotBlank: ~
+      - Type: \DateTime

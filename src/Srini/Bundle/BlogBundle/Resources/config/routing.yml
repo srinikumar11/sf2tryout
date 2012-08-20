@@ -1,3 +1,13 @@
+_welcome:
+    pattern:  /
+    defaults: { _controller: SriniBlogBundle:Default:index,first_name:Srinivasan,last_name:Kumar,color:red }
+      
 SriniBlogBundle_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SriniBlogBundle:Default:index }
+    pattern:  /hello/{first_name}/{last_name}/{color}
+    defaults: { _controller: SriniBlogBundle:Default:index, color:green, last_name:""}
+      
+
+
+SriniBlogBundle_welcome:
+    pattern:  /welcome/{slug}
+    defaults: { _controller: SriniBlogBundle:Default:welcome}
