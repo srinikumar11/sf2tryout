@@ -6,5 +6,25 @@ category_show:
     pattern:  /{id}/show
     defaults: { _controller: "SriniStoreBundle:Category:show" }
 
+category_new:
+    pattern:  /new
+    defaults: { _controller: "SriniStoreBundle:Category:new" }
 
+category_create:
+    pattern:  /create
+    defaults: { _controller: "SriniStoreBundle:Category:create" }
+    requirements: { _method: post }
 
+category_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SriniStoreBundle:Category:edit" }
+
+category_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SriniStoreBundle:Category:update" }
+    requirements: { _method: post }
+
+category_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SriniStoreBundle:Category:delete" }
+    requirements: { _method: post }

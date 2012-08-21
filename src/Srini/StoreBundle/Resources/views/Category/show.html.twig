@@ -1,3 +1,6 @@
+{% extends "SriniStoreBundle::layout.html.twig" %}
+{% block title %}Category{% endblock %}
+{% block content %}
 <h1>Category</h1>
 
 <table class="record_properties">
@@ -19,4 +22,16 @@
             Back to the list
         </a>
     </li>
+    <li>
+        <a href="{{ path('category_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('category_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
 </ul>
+{% endblock %}
