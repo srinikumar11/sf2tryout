@@ -1,3 +1,3 @@
 SriniBlogBundle_homepage:
-    pattern:  /hello/{name}
+    pattern:  /blog/{name}
     defaults: { _controller: SriniBlogBundle:Default:index }

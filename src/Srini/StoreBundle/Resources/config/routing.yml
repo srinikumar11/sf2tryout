@@ -8,12 +8,9 @@
     
 SriniStoreBundle_category:
     resource: "@SriniStoreBundle/Resources/config/routing/category.yml"
-    prefix:   /category
+    prefix:   /store/category
 
 SriniStoreBundle_product:
     resource: "@SriniStoreBundle/Resources/config/routing/product.yml"
-    prefix:   /product
+    prefix:   /store/product
 
-_login:
-    pattern: /login
-    defaults: {_controller: SriniStoreBundle:Default:login}

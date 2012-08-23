@@ -1,14 +1,14 @@
 SriniTaskBundle:
     resource: "@SriniTaskBundle/Resources/config/routing.yml"
-    prefix:   /task
+    prefix:   /
 
 SriniStoreBundle:
     resource: "@SriniStoreBundle/Resources/config/routing.yml"
-    prefix:   /store
+    prefix:   /
 
 SriniBlogBundle:
     resource: "@SriniBlogBundle/Resources/config/routing.yml"
-    prefix:   /blog
+    prefix:   /
 
 # Internal routing configuration to handle ESI
 #_internal:
