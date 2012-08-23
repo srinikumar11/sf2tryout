@@ -14,9 +14,9 @@ SriniStoreBundle:
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
 #   prefix:   /_internal
-#_welcome:
-#    pattern:  /
-#    defaults: { _controller: SriniBlogBundle:Default:index,first_name:Srinivasan,last_name:Kumar,color:red }
+_welcome:
+    pattern:  /
+    defaults: { _controller: SriniBlogBundle:Default:index,first_name:Srinivasan,last_name:Kumar,color:red }
 
 #_demo_secured:
 #    resource: "@AcmeDemoBundle/Controller/SecuredController.php"

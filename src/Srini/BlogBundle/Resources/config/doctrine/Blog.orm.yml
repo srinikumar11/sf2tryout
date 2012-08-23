@@ -1,0 +1,13 @@
+## YAML Template.
+---
+Srini\BlogBundle\Entity\Blog:
+    type: entity
+    repositoryClass: Srini\BlogBundle\Entity\BlogRepositoyCLass
+    table: blog
+    fields:
+      id: {type: integer, id: true, generator: {strategy: auto}}
+      title: {type: string, length: 255}
+      author: {type: string, length: 255}
+      blog: {type: text}
+      
+  
