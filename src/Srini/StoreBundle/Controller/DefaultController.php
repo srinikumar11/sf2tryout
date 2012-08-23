@@ -5,7 +5,7 @@ namespace Srini\StoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Srini\StoreBundle\Entity\Category;
 use Srini\StoreBundle\Entity\Product;
-
+use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Response;
 
 
@@ -38,7 +38,19 @@ class DefaultController extends Controller
 
 
     }
-    
+     public function loginAction()
+    {
+        if ($this->get('request')->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $this->get('request')->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        } else {
+            $error = $this->get('request')->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
+        }
+
+        return array(
+            'last_username' => $this->get('request')->getSession()->get(SecurityContext::LAST_USERNAME),
+            'error'         => $error,
+        );
+    }
     public function showAction($id)
     {
         $product = $this->getDoctrine()

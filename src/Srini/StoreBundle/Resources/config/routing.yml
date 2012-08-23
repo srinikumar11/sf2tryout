@@ -14,4 +14,6 @@ SriniStoreBundle_product:
     resource: "@SriniStoreBundle/Resources/config/routing/product.yml"
     prefix:   /product
 
-      
+_login:
+    pattern: /login
+    defaults: {_controller: SriniStoreBundle:Default:login}
