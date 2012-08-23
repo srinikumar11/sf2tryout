@@ -1,14 +1,14 @@
 SriniTaskBundle:
     resource: "@SriniTaskBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /task
 
 SriniStoreBundle:
     resource: "@SriniStoreBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /store
 
 SriniBlogBundle:
     resource: "@SriniBlogBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /blog
 
 # Internal routing configuration to handle ESI
 #_internal:
@@ -16,7 +16,7 @@ SriniBlogBundle:
 #   prefix:   /_internal
 _welcome:
     pattern:  /
-    defaults: { _controller: SriniBlogBundle:Default:index,first_name:Srinivasan,last_name:Kumar,color:red }
+    defaults: { _controller: AcmeDemoBundle:Welcome:index,first_name:Srinivasan,last_name:Kumar,color:red }
 
 _demo_secured:
     resource: "@AcmeDemoBundle/Controller/SecuredController.php"

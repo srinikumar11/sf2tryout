@@ -22,7 +22,7 @@ security:
             security: false
 
         secured_area:
-            pattern:    ^/product
+            pattern:    ^/admin
             form_login:
                 check_path: /demo/secured/login_check
                 login_path: /demo/secured/login
