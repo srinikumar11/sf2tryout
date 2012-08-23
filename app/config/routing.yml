@@ -6,9 +6,9 @@ SriniStoreBundle:
     resource: "@SriniStoreBundle/Resources/config/routing.yml"
     prefix:   /
 
-#SriniBlogBundle:
-#    resource: "@SriniBlogBundle/Resources/config/routing.yml"
-#    prefix:   /
+SriniBlogBundle:
+    resource: "@SriniBlogBundle/Resources/config/routing.yml"
+    prefix:   /
 
 # Internal routing configuration to handle ESI
 #_internal:
@@ -18,14 +18,14 @@ _welcome:
     pattern:  /
     defaults: { _controller: SriniBlogBundle:Default:index,first_name:Srinivasan,last_name:Kumar,color:red }
 
-#_demo_secured:
-#    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
-#    type:     annotation
-#
-#_demo:
-#    resource: "@AcmeDemoBundle/Controller/DemoController.php"
-#    type:     annotation
-#    prefix:   /demo
+_demo_secured:
+    resource: "@AcmeDemoBundle/Controller/SecuredController.php"
+    type:     annotation
+
+_demo:
+    resource: "@AcmeDemoBundle/Controller/DemoController.php"
+    type:     annotation
+    prefix:   /demo
 #
 _wdt:
     resource: "@WebProfilerBundle/Resources/config/routing/wdt.xml"
