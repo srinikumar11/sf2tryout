@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Srini\StoreBundle\SriniStoreBundle(),
             new Srini\TaskBundle\SriniTaskBundle(),
-            new Srini\BlogBundle\SriniBlogBundle(),
+//            new Srini\BlogBundle\SriniBlogBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test', 'prod'))) {

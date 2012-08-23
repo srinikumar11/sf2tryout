@@ -6,9 +6,9 @@ SriniStoreBundle:
     resource: "@SriniStoreBundle/Resources/config/routing.yml"
     prefix:   /
 
-SriniBlogBundle:
-    resource: "@SriniBlogBundle/Resources/config/routing.yml"
-    prefix:   /
+#SriniBlogBundle:
+#    resource: "@SriniBlogBundle/Resources/config/routing.yml"
+#    prefix:   /
 
 # Internal routing configuration to handle ESI
 #_internal:
