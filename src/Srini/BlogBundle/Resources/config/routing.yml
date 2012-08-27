@@ -1,3 +1,17 @@
-SriniBlogBundle_homepage:
+
+SriniBlogBundle_blog:
+    resource: "@SriniBlogBundle/Resources/config/routing/blog.yml"
+    prefix:   /bloglist
+
+
+SriniBlogBundle_index:
     pattern:  /blog/{name}
-    defaults: { _controller: SriniBlogBundle:Default:index }
+    defaults: { _controller: SriniBlogBundle:Default:index}
+
+SriniBlogBundle_homepage:
+    pattern:  /blog
+    defaults: { _controller: SriniBlogBundle:blog:show, id: 1 }
+    
+SriniBlogBundle_index:
+    pattern:  /blog/upload
+    defaults: { _controller: SriniBlogBundle:Default:upload}

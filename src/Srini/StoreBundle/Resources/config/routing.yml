@@ -14,3 +14,6 @@ SriniStoreBundle_product:
     resource: "@SriniStoreBundle/Resources/config/routing/product.yml"
     prefix:   /store/product
 
+SriniStoreBundle_store:
+    pattern: /store
+    defaults: {_controller: SriniStoreBundle:category:index}

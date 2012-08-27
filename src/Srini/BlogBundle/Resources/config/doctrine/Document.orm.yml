@@ -1,0 +1,16 @@
+## YAML Template.
+---
+Srini\BlogBundle\Entity\Document:
+    type: entity
+    repositoryClass: Srini\BlogBundle\Entity\DocumentRepositoyCLass
+    table: document
+    fields:
+      id: {type: integer, id: true, generator: {strategy: auto}}
+      name: {type: string, length: 255}
+#      file: {type: File,maxSize: 1024k,mimeTypes: [application/pdf, application/x-pdf], mimeTypesMessage: Please upload a valid PDF} 
+#        - File:
+#                maxSize: 1024k
+#                mimeTypes: [application/pdf, application/x-pdf]
+#                mimeTypesMessage: Please upload a valid PDF
+      path: {type: text,nullable: true}
+      

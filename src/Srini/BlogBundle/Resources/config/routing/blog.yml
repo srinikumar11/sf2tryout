@@ -1,0 +1,30 @@
+blog:
+    pattern:  /
+    defaults: { _controller: "SriniBlogBundle:Blog:index" }
+
+blog_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SriniBlogBundle:Blog:show" }
+
+blog_new:
+    pattern:  /new
+    defaults: { _controller: "SriniBlogBundle:Blog:new" }
+
+blog_create:
+    pattern:  /create
+    defaults: { _controller: "SriniBlogBundle:Blog:create" }
+    requirements: { _method: post }
+
+blog_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SriniBlogBundle:Blog:edit" }
+
+blog_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SriniBlogBundle:Blog:update" }
+    requirements: { _method: post }
+
+blog_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SriniBlogBundle:Blog:delete" }
+    requirements: { _method: post }
