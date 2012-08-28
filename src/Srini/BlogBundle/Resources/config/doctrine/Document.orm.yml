@@ -13,4 +13,7 @@ Srini\BlogBundle\Entity\Document:
 #                mimeTypes: [application/pdf, application/x-pdf]
 #                mimeTypesMessage: Please upload a valid PDF
       path: {type: text,nullable: true}
+    lifecycleCallbacks:
+      prePersist: [ preUpload]
+      postPersist: [ upload ]
       

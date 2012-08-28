@@ -36,6 +36,77 @@ class Document
      */
     public $file;
 
+/**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set file
+     *
+     * @param File $file
+     */
+    public function setFile( $file)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * Get file
+     *
+     * @return File 
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * Set path
+     *
+     * @param text $path
+     */
+    public function setPath($path)
+    {
+        $this->path = $this->file->originalName;
+    }
+
+    /**
+     * Get path
+     *
+     * @return text 
+     */
+    public function getPath()
+    {
+        return $this->path;
+    }
+    
+    
     public function getAbsolutePath()
     {
         return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
@@ -66,6 +137,7 @@ class Document
     {
         if (null !== $this->file) {
             // do whatever you want to generate a unique name
+            
             $this->path = uniqid().'.'.$this->file->guessExtension();
         }
     }
@@ -78,7 +150,7 @@ class Document
         if (null === $this->file) {
             return;
         }
-
+$this->path = uniqid().'.'.$this->file->guessExtension(); 
         // if there is an error when moving the file, an exception will
         // be automatically thrown by move(). This will properly prevent
         // the entity from being persisted to the database on error
@@ -96,5 +168,6 @@ class Document
             unlink($file);
         }
     }
+
+    
 }
-?>
