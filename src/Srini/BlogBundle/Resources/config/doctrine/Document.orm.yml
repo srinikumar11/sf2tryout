@@ -15,5 +15,8 @@ Srini\BlogBundle\Entity\Document:
       path: {type: text,nullable: true}
     lifecycleCallbacks:
       prePersist: [ preUpload]
+      preUpdate: [ preUpload]
       postPersist: [ upload ]
+      postUpdate: [ upload ]
+      postRemove: [removeUpload]
       

@@ -15,3 +15,7 @@ SriniBlogBundle_homepage:
 SriniBlogBundle_index:
     pattern:  /blog/upload
     defaults: { _controller: SriniBlogBundle:Default:upload}
+    
+SriniBlogBundle_document:
+    resource: "@SriniBlogBundle/Resources/config/routing/document.yml"
+    prefix:   /document

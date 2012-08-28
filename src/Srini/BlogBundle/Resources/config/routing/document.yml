@@ -1,0 +1,30 @@
+document:
+    pattern:  /
+    defaults: { _controller: "SriniBlogBundle:Document:index" }
+
+document_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SriniBlogBundle:Document:show" }
+
+document_new:
+    pattern:  /new
+    defaults: { _controller: "SriniBlogBundle:Document:new" }
+
+document_create:
+    pattern:  /create
+    defaults: { _controller: "SriniBlogBundle:Document:create" }
+    requirements: { _method: post }
+
+document_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SriniBlogBundle:Document:edit" }
+
+document_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SriniBlogBundle:Document:update" }
+    requirements: { _method: post }
+
+document_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SriniBlogBundle:Document:delete" }
+    requirements: { _method: post }
