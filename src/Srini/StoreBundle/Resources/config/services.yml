@@ -1,7 +1,0 @@
-parameters:
-#    srini_store.example.class: Srini\StoreBundle\Example
-
-services:
-#    srini_store.example:
-#        class: %srini_store.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]

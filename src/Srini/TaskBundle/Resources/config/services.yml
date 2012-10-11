@@ -1,7 +1,0 @@
-parameters:
-#    srini_task.example.class: Srini\TaskBundle\Example
-
-services:
-#    srini_task.example:
-#        class: %srini_task.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
