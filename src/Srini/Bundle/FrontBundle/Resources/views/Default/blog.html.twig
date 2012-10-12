@@ -1,0 +1,33 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
+<h1>Srinivasan's Blog</h1>
+{% for entity in entities %}
+<table class="table-striped">
+    <thead>
+        <tr>
+            
+            <td><h2>{{ entity.title }}</h2>Category: {{ entity.category.name }}</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            
+            
+            <td>{{ entity.blog | raw }}</td>
+           
+            
+        </tr>
+ 
+    </tbody>
+    <tfoot>
+        <tr>
+     <td>{% if entity.updatedat %}{{ entity.updatedat|date('j F,Y') }}{% endif %}</td>
+     </tr>
+    </tfoot>
+</table>
+   {% endfor %}
+{% endblock %}

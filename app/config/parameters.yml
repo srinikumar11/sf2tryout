@@ -12,3 +12,9 @@ parameters:
     locale: en
     secret: 45720a93da5c591884f015417588f039aa615694
     database_path: null
+    mailer_transport: smtp
+    mailer_host : smtp.gmail.com
+    mailer_user: ilythica
+    mailer_password: !lYthic@
+    mailer_encryption: ssl
+    mailer_auth_mode: login

@@ -1,0 +1,7 @@
+srini_front_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SriniFrontBundle:Default:index , name: Srinivasan}
+    
+srini_front_blog:
+    pattern:  /blog
+    defaults: { _controller: SriniFrontBundle:Default:blog }

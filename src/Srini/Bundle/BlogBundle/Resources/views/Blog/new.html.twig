@@ -1,3 +1,6 @@
+{% extends '::base.html.twig' %}
+{% block body %}
+
 <h1>Blog creation</h1>
 
 <form action="{{ path('blog_create') }}" method="post" {{ form_enctype(form) }}>
@@ -15,3 +18,4 @@
     </li>
 </ul>
 {{ tinymce_init() }}
+{% endblock %}
