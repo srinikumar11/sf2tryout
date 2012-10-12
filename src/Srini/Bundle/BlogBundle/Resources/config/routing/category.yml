@@ -1,0 +1,30 @@
+admin_category:
+    pattern:  /
+    defaults: { _controller: "SriniBlogBundle:Category:index" }
+
+admin_category_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SriniBlogBundle:Category:show" }
+
+admin_category_new:
+    pattern:  /new
+    defaults: { _controller: "SriniBlogBundle:Category:new" }
+
+admin_category_create:
+    pattern:  /create
+    defaults: { _controller: "SriniBlogBundle:Category:create" }
+    requirements: { _method: post }
+
+admin_category_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SriniBlogBundle:Category:edit" }
+
+admin_category_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "SriniBlogBundle:Category:update" }
+    requirements: { _method: post }
+
+admin_category_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "SriniBlogBundle:Category:delete" }
+    requirements: { _method: post }

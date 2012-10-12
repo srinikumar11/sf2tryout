@@ -1,0 +1,33 @@
+Srini\Bundle\BlogBundle\Entity\Comment:
+    type: entity
+    table: null
+    repositoryClass: Srini\Bundle\BlogBundle\Entity\CommentRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        comment:
+            type: text
+        created_at:
+            type: datetime
+        updated_at:
+            type: datetime
+    manyToOne:
+      blog:
+        targetEntity: Blog
+        cascade: {  }
+        mappedBy: null
+        inversedBy: Blog
+        joinColumns:
+          blog:
+            referencedColumnName: id
+        orphanRemoval: false
+    lifecycleCallbacks: {  }
