@@ -164,4 +164,81 @@ class Blog
     {
         return $this->updated_at;
     }
+    /**
+     * @var Srini\Bundle\BlogBundle\Entity\Category
+     */
+    private $category;
+
+
+    /**
+     * Set category
+     *
+     * @param Srini\Bundle\BlogBundle\Entity\Category $category
+     * @return Blog
+     */
+    public function setCategory(\Srini\Bundle\BlogBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+    
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return Srini\Bundle\BlogBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    private $comments;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add comments
+     *
+     * @param Srini\Bundle\BlogBundle\Entity\Comment $comments
+     * @return Blog
+     */
+    public function addComment(\Srini\Bundle\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+    
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param Srini\Bundle\BlogBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Srini\Bundle\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+    
+    public function __toString(){
+        return $this->getTitle();
+    }
 }

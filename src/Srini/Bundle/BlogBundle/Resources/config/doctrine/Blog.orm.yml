@@ -25,5 +25,21 @@ Srini\Bundle\BlogBundle\Entity\Blog:
           gedmo:
             timestampable:
               on: update
-              
+    manyToOne:
+          category:
+            targetEntity: Category
+            cascade: {  }
+            mappedBy: null
+            inversedBy: blogs
+            joinColumns:
+              category:
+                referencedColumnName: id
+            orphanRemoval: false
+    oneToMany:
+      comments:
+        targetEntity: Comment
+        cascade: {  }
+        inversedBy:  Comments
+        mappedBy: comment
+        orphanRemoval: false
     lifecycleCallbacks: {  }

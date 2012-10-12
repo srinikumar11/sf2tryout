@@ -12,10 +12,16 @@ class BlogType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('blog')
+            ->add('blog','textarea', array(
+        'attr' => array(
+            'class' => 'tinymce',
+            'data-theme' => 'advanced' // simple, advanced, bbcode
+        )
+    ))
             ->add('published')
             ->add('created_at')
             ->add('updated_at')
+                ->add('category', 'entity', array('class' => 'SriniBlogBundle:Category', 'property' => 'name'))
         ;
     }
 
