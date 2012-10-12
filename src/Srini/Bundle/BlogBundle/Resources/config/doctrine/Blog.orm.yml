@@ -1,0 +1,29 @@
+Srini\Bundle\BlogBundle\Entity\Blog:
+    type: entity
+    table: blog
+    repositoryClass: Srini\Bundle\BlogBundle\Entity\BlogRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        title:
+            type: string
+            length: 255
+        blog:
+            type: text
+        published:
+            type: boolean
+        created_at:
+          type: datetime
+          gedmo:
+              timestampable:
+                 on: create
+        updated_at:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: update
+              
+    lifecycleCallbacks: {  }

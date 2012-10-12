@@ -1,0 +1,7 @@
+parameters:
+#    srini_user.example.class: Srini\Bundle\UserBundle\Example
+
+services:
+#    srini_user.example:
+#        class: %srini_user.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
