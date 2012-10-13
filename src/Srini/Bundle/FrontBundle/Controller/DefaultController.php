@@ -3,7 +3,7 @@
 namespace Srini\Bundle\FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Acme\DemoBundle\Form\ContactType;
+use Srini\Bundle\FrontBundle\Form\ContactType;
 
 
 class DefaultController extends Controller
@@ -43,6 +43,17 @@ class DefaultController extends Controller
     
     
      public function blogAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('SriniBlogBundle:Blog')->findAll();
+
+        return $this->render('SriniFrontBundle:Default:blog.html.twig', array(
+            'entities' => $entities,
+        ));
+    }
+    
+     public function aboutAction()
     {
         $em = $this->getDoctrine()->getManager();
 

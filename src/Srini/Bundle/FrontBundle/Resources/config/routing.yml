@@ -5,3 +5,15 @@ srini_front_homepage:
 srini_front_blog:
     pattern:  /blog
     defaults: { _controller: SriniFrontBundle:Default:blog }
+    
+_contact:
+    pattern:  /contact
+    defaults: { _controller: SriniFrontBundle:Default:contact}
+
+_welcome:
+    pattern:  /
+    defaults: { _controller: SriniFrontBundle:Default:index , name: Srinivasan}
+    
+srini_front_about:
+    pattern:  /about
+    defaults: { _controller: SriniFrontBundle:Default:blog }

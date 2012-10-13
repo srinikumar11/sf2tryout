@@ -2,14 +2,6 @@ srini_front:
     resource: "@SriniFrontBundle/Resources/config/routing.yml"
     prefix:   /
 
-_welcome:
-    pattern:  /
-    defaults: { _controller: SriniFrontBundle:Default:index , name: Srinivasan}
-    
-_contact:
-    pattern:  /contact
-    defaults: { _controller: SriniFrontBundle:Default:contact}
-
 srini_user:
     resource: "@SriniUserBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,10 +1,10 @@
 {% extends '::base.html.twig' %}
 {% block body %}
+<h2>Contact Srinivasan</h2>
 
-
-    <form action="{{ path('_demo_contact') }}" method="POST" id="contact_form">
+    <form action="{{ path('_contact') }}" method="POST" id="contact_form">
         {{ form_errors(form) }}
-
+        {{ form_row(form.name) }}    
         {{ form_row(form.email) }}
         {{ form_row(form.message) }}
 
