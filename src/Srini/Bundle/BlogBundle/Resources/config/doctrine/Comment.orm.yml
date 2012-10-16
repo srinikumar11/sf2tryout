@@ -20,12 +20,12 @@ Srini\Bundle\BlogBundle\Entity\Comment:
             type: datetime
             gedmo:
               timestampable:
-              on: create
+                on: create
         updated_at:
             type: datetime
             gedmo:
               timestampable:
-              on: update
+                on: update
     manyToOne:
       blog:
         targetEntity: Blog
