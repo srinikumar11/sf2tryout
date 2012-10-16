@@ -15,6 +15,19 @@ Srini\Bundle\BlogBundle\Entity\Blog:
             type: text
         published:
             type: boolean
+        author:
+          type: string
+          length: 255
+        slug:
+          type: string
+          length: 128
+          gedmo:
+            slug:
+              separator: _
+              style: camel
+              fields:
+                - title
+          
         created_at:
           type: datetime
           gedmo:
@@ -39,7 +52,6 @@ Srini\Bundle\BlogBundle\Entity\Blog:
       comments:
         targetEntity: Comment
         cascade: {  }
-        inversedBy:  Comments
-        mappedBy: comment
+        mappedBy: blog
         orphanRemoval: false
     lifecycleCallbacks: {  }

@@ -241,4 +241,60 @@ class Blog
     public function __toString(){
         return $this->getTitle();
     }
+    /**
+     * @var string $author
+     */
+    private $author;
+
+    /**
+     * @var string $slug
+     */
+    private $slug;
+
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     * @return Blog
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string 
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Blog
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }

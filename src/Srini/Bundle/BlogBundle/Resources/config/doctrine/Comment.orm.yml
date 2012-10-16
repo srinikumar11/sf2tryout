@@ -18,16 +18,22 @@ Srini\Bundle\BlogBundle\Entity\Comment:
             type: text
         created_at:
             type: datetime
+            gedmo:
+              timestampable:
+              on: create
         updated_at:
             type: datetime
+            gedmo:
+              timestampable:
+              on: update
     manyToOne:
       blog:
         targetEntity: Blog
         cascade: {  }
         mappedBy: null
-        inversedBy: Blog
+        inversedBy: comments
         joinColumns:
-          blog:
+          blog_id:
             referencedColumnName: id
         orphanRemoval: false
     lifecycleCallbacks: {  }
