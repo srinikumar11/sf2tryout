@@ -3,31 +3,21 @@
 
 <h1>Srinivasan's Blog</h1>
 {% for entity in entities %}
-<table class="table-striped">
-    <thead>
-        <tr>
-            
-            <td><h2>{{ entity.title }}</h2>Category: {{ entity.category.name }}</td>
-            
-        </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            
-            
-            <td>{{ entity.blog | raw }}</td>
-           
-            
-        </tr>
- 
-    </tbody>
-    <tfoot>
-        <tr>
-     <td>{% if entity.updatedat %}{{ entity.updatedat|date('j F,Y') }}{% endif %}</td>
-     </tr>
-    </tfoot>
-</table>
+        <article class="blog" id="{{ entity.title }}">
+            <div class="date"><time datetime="{{ entity.getCreatedAt|date('c') }}">{{ entity.getCreatedAt|date('l, F j, Y') }}</time></div>
+            <header>
+                <h2><a href="{{ path('front_blog_show', { 'id': entity.id, 'slug': entity.slug }) }}">{{ entity.title }}</a></h2>
+            </header>
+            <div class="snippet">
+                <p>{{ entity.blog(100)|raw }}</p>
+                <p class="continue"><a href="{{ path('front_blog_show', { 'id': entity.id, 'slug': entity.slug }) }}">Continue reading...</a></p>
+            </div>
+
+            <footer class="meta">
+                <p>Comments:  <a href="{{ path('front_blog_show', { 'id': entity.id, 'slug': entity.slug }) }}#comments">{{ entity.comments|length }}</a></p>
+                <p>Posted by <span class="highlight">{{entity.author}}</span> at {{ entity.getCreatedAt|date('h:iA') }}</p>
+                
+            </footer>
+        </article>
    {% endfor %}
 {% endblock %}

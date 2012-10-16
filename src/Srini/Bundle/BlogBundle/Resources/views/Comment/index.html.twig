@@ -1,45 +1,13 @@
-<h1>Comment list</h1>
+{% for comment in entities %}
+    <article class="comment {{ cycle(['odd', 'even'], loop.index0) }}" id="comment-{{ comment.id }}">
+        <header>
+            <p><span class="highlight">{{ comment.name }}</span> commented <time datetime="{{ comment.getCreatedAt|date('c') }}">{{ blog.getCreatedAt|date('l, F j, Y') }}
+</time></p>
+        </header>
+        <p>{{ comment.comment | raw}}</p>
+    </article>
+{% else %}
+    <p>There are no comments for this post. Be the first to comment...</p>
+{% endfor %}
 
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Comment</th>
-            <th>Created_at</th>
-            <th>Updated_at</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('comment_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.name }}</td>
-            <td>{{ entity.email }}</td>
-            <td>{{ entity.comment }}</td>
-            <td>{% if entity.createdat %}{{ entity.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>{% if entity.updatedat %}{{ entity.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('comment_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('comment_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
 
-<ul>
-    <li>
-        <a href="{{ path('comment_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>

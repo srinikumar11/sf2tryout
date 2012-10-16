@@ -10,6 +10,3 @@ SriniBlogBundle_admin_category:
     resource: "@SriniBlogBundle/Resources/config/routing/category.yml"
     prefix:   /category
     
-SriniBlogBundle_comment:
-        resource: "@SriniBlogBundle/Resources/config/routing/comment.yml"
-        prefix:   /comment

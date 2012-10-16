@@ -63,4 +63,25 @@ class DefaultController extends Controller
             'entities' => $entities,
         ));
     }
+    
+       public function showAction($id, $slug)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $blog = $em->getRepository('SriniBlogBundle:Blog')->find($id);
+
+        if (!$blog) {
+            throw $this->createNotFoundException('Unable to find Blog post.');
+        }
+
+        $comments = $em->getRepository('SriniBlogBundle:Comment')
+                   ->getCommentsForBlog($blog->getId());
+
+        return $this->render('SriniFrontBundle:Default:show.html.twig', array(
+            'blog'      => $blog,
+            'comments'  => $comments
+        ));
+   }
+    
+    
 }

@@ -11,7 +11,7 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('blog')
+//            ->add('blog')
             ->add('name')
             ->add('email')
             ->add('comment','textarea', array(
@@ -20,8 +20,8 @@ class CommentType extends AbstractType
             'data-theme' => 'advanced' // simple, advanced, bbcode
         )
     ))
-            ->add('created_at')
-            ->add('updated_at')
+//            ->add('created_at')
+//            ->add('updated_at')
             
         ;
     }

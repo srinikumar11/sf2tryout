@@ -50,7 +50,7 @@
               <li><a href="{{ path('srini_front_blog') }}">Blog</a></li>
               
             </ul>
-                  {{ knp_menu_render('SriniFrontBundle:Builder:mainMenu') }}
+                 
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -60,6 +60,14 @@
                    {% block fos_user_content %}
             {% endblock fos_user_content %}
                    </div>
+           <div class="navbar navbar-inverse navbar-fixed-bottom">
+               <div class="navbar-inner">
+                   <div class="container" style="text-align: center">
+                   Created by <a href="{{ path('_welcome') }}" class="active">Srinivasan Kumar</a>
+                   </div>
+               </div>
+           </div>
+           
             
            <!-- Le javascript
     ================================================== -->
