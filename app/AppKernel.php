@@ -30,6 +30,7 @@ class AppKernel extends Kernel
             new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
             new Srini\Bundle\FrontBundle\SriniFrontBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Srini\Bundle\JobeetBundle\SriniJobeetBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test','prod'))) {

@@ -1,0 +1,7 @@
+parameters:
+#    srini_jobeet.example.class: Srini\Bundle\JobeetBundle\Example
+
+services:
+#    srini_jobeet.example:
+#        class: %srini_jobeet.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

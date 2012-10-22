@@ -1,3 +1,7 @@
+srini_jobeet:
+    resource: "@SriniJobeetBundle/Resources/config/routing.yml"
+    prefix:   /
+
 srini_front:
     resource: "@SriniFrontBundle/Resources/config/routing.yml"
     prefix:   /
