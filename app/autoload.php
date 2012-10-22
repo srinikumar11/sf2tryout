@@ -14,6 +14,8 @@ if (!function_exists('intl_get_error_code')) {
     // ...
     'Knp\Bundle' => __DIR__.'/../vendor/bundles',
     'Knp\Menu'   => __DIR__.'/../vendor/KnpMenu/src',
+         'Doctrine\Common\DataFixtures' => __DIR__.'/../vendor/doctrine-fixtures/lib',
+    
     // ...
 ));
 }

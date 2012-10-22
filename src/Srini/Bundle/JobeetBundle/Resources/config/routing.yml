@@ -1,3 +1,11 @@
+SriniJobeetBundle_job:
+        resource: "@SriniJobeetBundle/Resources/config/routing/job.yml"
+        prefix:   /job
+        
+SriniJobeetBundle_category:
+    resource: "@SriniJobeetBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+    
 srini_jobeet_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: SriniJobeetBundle:Default:index }
