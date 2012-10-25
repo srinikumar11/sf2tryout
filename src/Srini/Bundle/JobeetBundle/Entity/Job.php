@@ -3,7 +3,7 @@
 namespace Srini\Bundle\JobeetBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Srini\Bundle\JobeetBundle\Utils\Jobeet as Jobeet;
 /**
  * Srini\Bundle\JobeetBundle\Entity\Job
  */
@@ -489,5 +489,20 @@ class Job
     public function getId()
     {
         return $this->id;
+    }
+    
+    public function getCompanySlug()
+    {
+        return Jobeet::slugify($this->getCompany());
+    }
+ 
+    public function getPositionSlug()
+    {
+        return Jobeet::slugify($this->getPosition());
+    }
+ 
+    public function getLocationSlug()
+    {
+        return Jobeet::slugify($this->getLocation());
     }
 }
