@@ -7,5 +7,9 @@ SriniJobeetBundle_category:
     prefix:   /category
     
 srini_jobeet_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SriniJobeetBundle:Default:index }
+    pattern:  /
+    defaults: { _controller: SriniJobeetBundle:Job:index }
+
+srini_jobeet_category:
+    pattern:  /category/{slug}/{page}
+    defaults: { _controller: SriniJobeetBundle:Category:show, page: 1 }

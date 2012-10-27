@@ -121,4 +121,29 @@ class Category
     {
         return $this->category_affiliates;
     }
+    /**
+     * @var integer $id
+     */
+    private $id;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * Return Category Name
+     * 
+     * @return string
+     */
+    
+    public function __toString(){
+        return $this->getName();
+    }
 }

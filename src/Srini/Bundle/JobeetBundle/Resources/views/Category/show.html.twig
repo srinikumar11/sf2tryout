@@ -1,33 +1,56 @@
-<h1>Category</h1>
-
-<table class="record_properties">
-    <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Name</th>
-            <td>{{ entity.name }}</td>
-        </tr>
-    </tbody>
-</table>
-
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('category') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('category_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('category_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+{% extends 'SriniJobeetBundle::layout.html.twig' %}
+ 
+{% block title %}
+  Jobs in the {{ category.name }} category
+{% endblock %}
+ 
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('bundles/srinijobeet/css/jobs.css') }}" type="text/css" media="all" />
+{% endblock %}
+ 
+{% block content %}
+  <div class="category">
+    <div class="feed">
+      <a href="">Feed</a>
+    </div>
+    <h1>{{ category.name }}</h1>
+  </div>
+ 
+  {% include 'SriniJobeetBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}
+  {% if last_page > 1 %}
+    <div class="pagination">
+      <a href="{{ path('srini_jobeet_category', { 'slug': category.slug, 'page': 1 }) }}">
+        <img src="{{ asset('bundles/srinijobeet/images/first.png') }}" alt="First page" title="First page" />
+      </a>
+ 
+      <a href="{{ path('srini_jobeet_category', { 'slug': category.slug, 'page': previous_page }) }}">
+        <img src="{{ asset('bundles/srinijobeet/images/previous.png') }}" alt="Previous page" title="Previous page" />
+      </a>
+ 
+      {% for page in 1..last_page %}
+        {% if page == current_page %}
+          {{ page }}
+        {% else %}
+          <a href="{{ path('srini_jobeet_category', { 'slug': category.slug, 'page': page }) }}">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+ 
+      <a href="{{ path('srini_jobeet_category', { 'slug': category.slug, 'page': next_page }) }}">
+        <img src="{{ asset('bundles/srinijobeet/images/next.png') }}" alt="Next page" title="Next page" />
+      </a>
+ 
+      <a href="{{ path('srini_jobeet_category', { 'slug': category.slug, 'page': last_page }) }}">
+        <img src="{{ asset('bundles/srinijobeet/images/last.png') }}" alt="Last page" title="Last page" />
+      </a>
+    </div>
+  {% endif %}
+ 
+  <div class="pagination_desc">
+    <strong>{{ total_jobs }}</strong> jobs in this category
+ 
+    {% if last_page > 1 %}
+      - page <strong>{{ current_page }}/{{ last_page }}</strong>
+    {% endif %}
+  </div>
+{% endblock %}

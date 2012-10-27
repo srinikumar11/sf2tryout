@@ -1,6 +1,7 @@
 Srini\Bundle\JobeetBundle\Entity\Job:
   type: entity
   table: job
+  repositoryClass: Srini\Bundle\JobeetBundle\Repository\JobRepository
   fields:
     id:
         type: integer
@@ -61,5 +62,5 @@ Srini\Bundle\JobeetBundle\Entity\Job:
         name: category_id
         referencedColumnName: id
   lifecycleCallbacks:
-    prePersist: [ setCreatedAtValue ]
+    prePersist: [ setCreatedAtValue, setExpiresAtValue ]
     preUpdate: [ setUpdatedAtValue ]

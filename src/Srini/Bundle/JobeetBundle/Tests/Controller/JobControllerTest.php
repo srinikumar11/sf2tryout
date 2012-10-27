@@ -6,6 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class JobControllerTest extends WebTestCase
 {
+    public function testIndex()
+  {
+    $client = static::createClient();
+ 
+    $crawler = $client->request('GET', '/');
+    $this->assertEquals('Srini\Bundle\JobeetBundle\Controller\JobController::indexAction', $client->getRequest()->attributes->get('_controller'));
+    $this->assertTrue($crawler->filter('.jobs td.position:contains("Expired")')->count() == 0);
+  }
+    
     /*
     public function testCompleteScenario()
     {
