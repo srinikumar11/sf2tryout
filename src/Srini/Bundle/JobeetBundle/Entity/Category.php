@@ -197,4 +197,8 @@ public function getMoreJobs()
 {
   return $this->more_jobs;
 }
+
+public function __toString(){
+    return $this->getName();
+}
 }

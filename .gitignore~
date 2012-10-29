@@ -2,4 +2,3 @@ nbproject/*
 app/cache/*
 app/logs/*
 vendor/*
-web/upload*

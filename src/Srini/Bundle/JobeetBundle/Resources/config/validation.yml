@@ -1,0 +1,24 @@
+Srini\Bundle\JobeetBundle\Entity\Job:
+  properties:
+    category:
+      - NotBlank: ~
+    company:
+      - NotBlank: ~
+    position:
+      - NotBlank: ~
+    location:
+      - NotBlank: ~
+    description:
+      - NotBlank: ~
+    how_to_apply:
+      - NotBlank: ~
+    file:
+      - Image: ~
+    token:
+      - NoBlank: ~
+    type:
+      - NotBlank: ~
+      - Choice: {callback: getTypeValues}
+    email:
+      - NotBlank: ~
+      - Email: ~

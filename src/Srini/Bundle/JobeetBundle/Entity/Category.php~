@@ -3,16 +3,26 @@
 namespace Srini\Bundle\JobeetBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Srini\Bundle\JobeetBundle\Utils\Jobeet as Jobeet;
 /**
  * Srini\Bundle\JobeetBundle\Entity\Category
  */
 class Category
 {
     /**
+     * @var integer $id
+     */
+    private $id;
+
+    /**
      * @var string $name
      */
     private $name;
+
+    /**
+     * @var string $slug
+     */
+    private $slug;
 
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
@@ -23,6 +33,9 @@ class Category
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
     private $category_affiliates;
+    
+    
+    private $active_jobs;
 
     /**
      * Constructor
@@ -33,6 +46,16 @@ class Category
         $this->category_affiliates = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
     /**
      * Set name
      *
@@ -54,6 +77,29 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Category
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
@@ -122,28 +168,37 @@ class Category
         return $this->category_affiliates;
     }
     /**
-     * @var integer $id
+     * @ORM\PrePersist
      */
-    private $id;
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function setSlugValue()
     {
-        return $this->id;
+        $this->slug = Jobeet::slugify($this->getName());
     }
     
-    /**
-     * Return Category Name
-     * 
-     * @return string
-     */
     
-    public function __toString(){
-        return $this->getName();
-    }
+        public function setActiveJobs($jobs)
+  {
+    $this->active_jobs = $jobs;
+  }
+ 
+  public function getActiveJobs()
+  {
+    return $this->active_jobs;
+  }
+  
+    private $more_jobs;
+  
+  public function setMoreJobs($jobs)
+{
+  $this->more_jobs = $jobs >=  0 ? $jobs : 0;
+}
+ 
+public function getMoreJobs()
+{
+  return $this->more_jobs;
+}
+
+public function __toString(){
+    return $this->getName();
+}
 }

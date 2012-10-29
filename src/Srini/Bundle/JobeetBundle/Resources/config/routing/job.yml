@@ -18,15 +18,31 @@ job_create:
     requirements: { _method: post }
 
 job_edit:
-    pattern:  /{id}/edit
+    pattern:  /{token}/edit
     defaults: { _controller: "SriniJobeetBundle:Job:edit" }
 
 job_update:
-    pattern:  /{id}/update
+    pattern:  /{token}/update
     defaults: { _controller: "SriniJobeetBundle:Job:update" }
     requirements: { _method: post }
 
 job_delete:
-    pattern:  /{id}/delete
+    pattern:  /{token}/delete
     defaults: { _controller: "SriniJobeetBundle:Job:delete" }
+    requirements: { _method: post }
+
+job_preview:
+    pattern:  /{company}/{location}/{token}/{position}
+    defaults: { _controller: "SriniJobeetBundle:Job:preview" }
+    requirements:
+        token:  \w+
+
+job_publish:
+    pattern:  /{token}/publish
+    defaults: { _controller: "SriniJobeetBundle:Job:publish" }
+    requirements: { _method: post}
+    
+job_extend:
+    pattern:  /{token}/extend
+    defaults: { _controller: "SriniJobeetBundle:Job:extend" }
     requirements: { _method: post }
