@@ -8,5 +8,5 @@ SriniBlogBundle_blog:
 
 SriniBlogBundle_admin_category:
     resource: "@SriniBlogBundle/Resources/config/routing/category.yml"
-    prefix:   /category
+    prefix:   /blog_category
     

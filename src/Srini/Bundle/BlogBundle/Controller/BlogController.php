@@ -80,7 +80,7 @@ class BlogController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('blog_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('blog_show', array('id' => $entity->getId(), 'slug' => $entity->getSlug())));
         }
 
         return $this->render('SriniBlogBundle:Blog:new.html.twig', array(

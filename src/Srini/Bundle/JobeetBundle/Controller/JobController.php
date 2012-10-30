@@ -115,7 +115,7 @@ class JobController extends Controller
             throw $this->createNotFoundException('Unable to find Job entity.');
         }
         
-        if ($entity->getIsActivated()) {
+        if ($entity->getIsActivated() && false === $this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY')) {
             throw $this->createNotFoundException('Job is activated and cannot be edited.');
         }
 

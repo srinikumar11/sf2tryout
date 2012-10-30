@@ -1,16 +1,15 @@
+{% extends '::base.html.twig' %}
+{% block body %}
 <h1>Category creation</h1>
-
+<a class="btn" href="{{ path('admin_category') }}">
+            Back to the list
+        </a>
+<br /><br />
 <form action="{{ path('admin_category_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">Create</button>
+        <button type="submit" class="btn">Create</button>
     </p>
 </form>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_category') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% endblock %}

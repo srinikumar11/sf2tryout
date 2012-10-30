@@ -1,14 +1,13 @@
+srini_front:
+    resource: "@SriniFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+    
 srini_jobeet:
     resource: "@SriniJobeetBundle/Resources/config/routing.yml"
     prefix:   /
-#
-#srini_front:
-#    resource: "@SriniFrontBundle/Resources/config/routing.yml"
-#    prefix:   /
-
-#srini_user:
-#    resource: "@SriniUserBundle/Resources/config/routing.yml"
-#    prefix:   /
+srini_user:
+    resource: "@SriniUserBundle/Resources/config/routing.yml"
+    prefix:   /
 
 srini_blog:
     resource: "@SriniBlogBundle/Resources/config/routing.yml"

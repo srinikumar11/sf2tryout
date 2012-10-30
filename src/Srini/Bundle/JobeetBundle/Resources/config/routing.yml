@@ -4,7 +4,7 @@ SriniJobeetBundle_job:
         
 SriniJobeetBundle_category:
     resource: "@SriniJobeetBundle/Resources/config/routing/category.yml"
-    prefix:   /category
+    prefix:   /admin/job_category
     
 srini_jobeet_homepage:
     pattern:  /

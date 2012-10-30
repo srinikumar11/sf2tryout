@@ -1,3 +1,5 @@
+{% extends '::base.html.twig' %}
+{% block body %}
 <h1>Category</h1>
 
 <table class="record_properties">
@@ -13,21 +15,19 @@
     </tbody>
 </table>
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_category') }}">
+<div class="btn-group record_actions">
+            <a class="btn" href="{{ path('admin_category_edit', { 'id': entity.id }) }}">
+            Edit
+        </a> &nbsp;
+        <a class="btn" href="{{ path('admin_category') }}">
             Back to the list
         </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_category_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>
+
+
         <form action="{{ path('admin_category_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit" class="btn">Delete</button>
         </form>
-    </li>
-</ul>
+    
+</div>
+{% endblock %}

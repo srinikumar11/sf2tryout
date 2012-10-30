@@ -2,13 +2,6 @@ blog:
     pattern:  /
     defaults: { _controller: "SriniBlogBundle:Blog:index" }
 
-blog_show:
-    pattern:  /{id}/{slug}
-    defaults: { _controller: "SriniBlogBundle:Blog:show" }
-    requirements:
-        _method:  GET
-        id: \d+
-
 blog_new:
     pattern:  /new
     defaults: { _controller: "SriniBlogBundle:Blog:new" }
@@ -31,3 +24,10 @@ blog_delete:
     pattern:  /{id}/delete
     defaults: { _controller: "SriniBlogBundle:Blog:delete" }
     requirements: { _method: post }
+
+blog_show:
+    pattern:  /{id}/{slug}
+    defaults: { _controller: "SriniBlogBundle:Blog:show" }
+    requirements:
+        _method:  GET
+        id: \d+

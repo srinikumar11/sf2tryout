@@ -54,9 +54,10 @@ class CommentController extends Controller
      * Displays a form to create a new Comment entity.
      *
      */
-    public function newAction()
+    public function newAction($blog_id)
     {
         $entity = new Comment();
+        $entity->setBlog($this->getBlog($blog_id));
         $form   = $this->createForm(new CommentType(), $entity);
 
         return $this->render('SriniBlogBundle:Comment:new.html.twig', array(
@@ -79,8 +80,8 @@ class CommentController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
-            return $this->redirect($this->generateUrl('comment_show', array('id' => $entity->getId())));
+            
+            return $this->redirect($this->generateUrl('front_blog_show', array('id' => $entity->getBlog()->getId(),'slug' => $entity->getBlog()->getSlug())));
         }
 
         return $this->render('SriniBlogBundle:Comment:new.html.twig', array(
@@ -175,5 +176,19 @@ class CommentController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+    
+    protected function getBlog($blog_id)
+    {
+        $em = $this->getDoctrine()
+                    ->getEntityManager();
+
+        $blog = $em->getRepository('SriniBlogBundle:Blog')->find($blog_id);
+
+        if (!$blog) {
+            throw $this->createNotFoundException('Unable to find Blog post.');
+        }
+
+        return $blog;
     }
 }
