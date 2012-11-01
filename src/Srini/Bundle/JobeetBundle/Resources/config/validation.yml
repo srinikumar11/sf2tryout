@@ -18,7 +18,7 @@ Srini\Bundle\JobeetBundle\Entity\Job:
       - NotBlank: ~
     type:
       - NotBlank: ~
-      - Choice: {callback: getTypes}
+      - Choice: {callback: [Srini\Bundle\JobeetBundle\Utils\Jobeet, getTypesValues]}
     email:
       - NotBlank: ~
       - Email: ~

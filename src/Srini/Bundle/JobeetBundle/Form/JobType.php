@@ -6,13 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Srini\Bundle\JobeetBundle\Entity\Job as Job;
+use Srini\Bundle\JobeetBundle\Utils\Jobeet as Jobeet;
 
 class JobType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('type', 'choice', array('choices' => Job::getTypes(), 'expanded' => true))
+            ->add('type', 'choice', array('choices' => Jobeet::getTypes(), 'expanded' => true))
             ->add('company')
 //            ->add('logo', null, array('label' => 'Company logo'))
             ->add('url')

@@ -519,14 +519,6 @@ class Job
         }
     }
     
-    public static function getTypes(){
-        return array('full-time' => 'Full time', 'part-time' => 'Part time', 'freelance' => 'Freelance');
-    }
-    
-    public static function getTypesValues(){
-        return array_keys(self::getTypes());
-    }
-    
     
     protected function getUploadDir()
 {
