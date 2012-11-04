@@ -1,4 +1,4 @@
-{% extends 'SriniJobeetBundle::layout.html.twig' %}
+{% extends '::base.html.twig' %}
  
 {% block title %}
   Jobs in the {{ category.name }} category
@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="{{ asset('bundles/srinijobeet/css/jobs.css') }}" type="text/css" media="all" />
 {% endblock %}
  
-{% block content %}
+{% block body %}
   <div class="category">
     <div class="feed">
       <a href="">Feed</a>
     </div>
-    <h1>{{ category.name }}</h1>
+    <h4>{{ category.name }}</h4>
   </div>
  
   {% include 'SriniJobeetBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}

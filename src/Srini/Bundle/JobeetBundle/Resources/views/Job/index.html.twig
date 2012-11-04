@@ -1,17 +1,15 @@
-{% extends 'SriniJobeetBundle::layout.html.twig' %}
+{% extends '::base.html.twig' %}
 {% block stylesheets %}
   {{ parent() }}
   <link rel="stylesheet" href="{{ asset('bundles/srinijobeet/css/jobs.css') }}" type="text/css" media="all" />
 {% endblock %}
-{% block content %}
+{% block body %}
   <div id="jobs">
     {% for category in categories %}
       <div>
         <div class="category_{{ category.slug }}">
-          <div class="feed">
-            <a href="">Feed</a>
-          </div>
-          <h1><a href="{{ path('srini_jobeet_category', { 'slug': category.slug }) }}">{{ category.name }}</a></h1>
+          
+          <h4><a href="{{ path('srini_jobeet_category', { 'slug': category.slug }) }}">{{ category.name }}</a></h4>
         </div>
         {% include 'SriniJobeetBundle:Job:list.html.twig' with {'jobs': category.activejobs} %}
               {% if category.morejobs %}

@@ -1,19 +1,19 @@
-{% extends 'SriniJobeetBundle::layout.html.twig' %}
+{% extends '::base.html.twig' %}
 {% block stylesheets %}
   {{ parent() }}
   <link rel="stylesheet" href="{{ asset('bundles/srinijobeet/css/job.css') }}" type="text/css" media="all" />
 {% endblock %}
-{% block content %}
+{% block body %}
     {% if app.request.get('token') %}
     {% include 'SriniJobeetBundle:Job:admin.html.twig' with {'job': entity} %}
   {% endif %}
-    <div id="job">
-      <h1>{{ entity.company }}</h1>
-      <h2>{{ entity.location }}</h2>
-      <h3>
+    <div id="">
+      <h4>{{ entity.company }}</h4>
+      <h5>{{ entity.location }}</h5>
+      <h6>
         {{ entity.position }}
         <small> - {{ entity.type }}</small>
-      </h3>
+      </h6>
  
       {% if entity.logo %}
         <div class="logo">

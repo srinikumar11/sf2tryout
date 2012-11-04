@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="app"/>
+	<buildpathentry kind="src" path="src/Acme/DemoBundle"/>
+	<buildpathentry kind="src" path="src/Srini/Bundle/BlogBundle"/>
+	<buildpathentry kind="src" path="src/Srini/Bundle/FrontBundle"/>
+	<buildpathentry kind="src" path="src/Srini/Bundle/JobeetBundle"/>
+	<buildpathentry kind="src" path="src/Srini/Bundle/UserBundle"/>
+	<buildpathentry kind="src" path="vendor"/>
+	<buildpathentry kind="src" path="web"/>
+	<buildpathentry kind="lib" path="vendor.zip"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>
