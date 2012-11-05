@@ -1,4 +1,4 @@
-{% extends 'SriniJobeetBundle::layout.html.twig' %}
+{% extends '::base.html.twig' %}
 
 {% form_theme form _self %}
  
@@ -19,14 +19,14 @@
   <link rel="stylesheet" href="{{ asset('bundles/srinijobeet/css/job.css') }}" type="text/css" media="all" />
 {% endblock %}
  
-{% block content %}
+{% block body %}
   <h1>Job creation</h1>
   <form action="{{ path('job_create') }}" method="post" {{ form_enctype(form) }}>
     <table id="job_form">
       <tfoot>
         <tr>
           <td colspan="2">
-            <input type="submit" value="Preview your job" />
+            <input type="submit" value="Post a job" />
           </td>
         </tr>
       </tfoot>

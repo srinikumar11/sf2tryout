@@ -33,6 +33,7 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
   </head>
    <body>
+       
        <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -44,11 +45,11 @@
           <a class="brand" href="{{ path('_welcome') }}">SRINIVASANK.COM</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="{{ path('_welcome') }}">Home</a></li>
-              <li><a href="{{ path('srini_front_about') }}">About</a></li>
-              <li><a href="{{ path('_contact') }}">Contact</a></li>
-              <li><a href="{{ path('srini_front_blog') }}">Blog</a></li>
-              <li><a href="{{ path('job') }}">Jobeet</a></li>
+              <li class="{{ app.request.get('_route') == '_welcome'?'active':'' }}"><a href="{{ path('_welcome') }}">Home</a></li>
+              <li class="{{ app.request.get('_route') == 'srini_front_about'?'active':'' }}"><a href="{{ path('srini_front_about') }}">About</a></li>
+              <li class="{{ app.request.get('_route') == '_contact'?'active':'' }}"><a href="{{ path('_contact') }}">Contact</a></li>
+              <li class="{{ app.request.get('_route') == 'srini_front_blog'?'active':'' }}"><a href="{{ path('srini_front_blog') }}">Blog</a></li>
+              <li class="{{ app.request.get('_route') == 'job'?'active':'' }}"><a href="{{ path('job') }}">Jobeet</a></li>
               {% if is_granted("IS_AUTHENTICATED_FULLY") %}
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>

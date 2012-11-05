@@ -1,7 +1,15 @@
 SriniJobeetBundle_job:
         resource: "@SriniJobeetBundle/Resources/config/routing/job.yml"
         prefix:   /job
-        
+job_new:
+    pattern:  /admin/job/new
+    defaults: { _controller: "SriniJobeetBundle:Job:new" }
+
+job_create:
+    pattern:  /admin/job/create
+    defaults: { _controller: "SriniJobeetBundle:Job:create" }
+    requirements: { _method: post }
+
 SriniJobeetBundle_category:
     resource: "@SriniJobeetBundle/Resources/config/routing/category.yml"
     prefix:   /admin/job_category

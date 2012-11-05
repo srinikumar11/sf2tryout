@@ -5,6 +5,20 @@
 {% endblock %}
 {% block body %}
   <div id="jobs">
+      {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+          <div class="btn-group">
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Actions
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+        <a href="{{ path('job_new') }}">New Job</a>
+    </li>
+  </ul>
+        </div>
+          
+          {% endif %}
     {% for category in categories %}
       <div>
         <div class="category_{{ category.slug }}">

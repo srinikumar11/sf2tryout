@@ -1,5 +1,18 @@
 {% extends '::base.html.twig' %}
 {% block body %}
+  <div class="btn-group">
+<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Actions
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+        <a href="{{ path('category_new') }}">
+            New job category
+        </a>
+    </li>
+  </ul>
+        </div>
 <h1>Category list</h1>
 
 <table class="table table-striped records_list">
@@ -26,8 +39,6 @@
     </tbody>
 </table>
 
-        <a class="btn" href="{{ path('category_new') }}">
-            Create a new entry
-        </a>
+        
 
 {% endblock %}

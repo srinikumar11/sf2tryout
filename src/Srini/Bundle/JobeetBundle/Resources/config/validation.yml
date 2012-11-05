@@ -14,8 +14,6 @@ Srini\Bundle\JobeetBundle\Entity\Job:
       - NotBlank: ~
     file:
       - Image: ~
-    token:
-      - NotBlank: ~
     type:
       - NotBlank: ~
       - Choice: {callback: [Srini\Bundle\JobeetBundle\Utils\Jobeet, getTypesValues]}

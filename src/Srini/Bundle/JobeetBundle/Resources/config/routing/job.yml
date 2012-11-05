@@ -7,16 +7,6 @@ job_show:
     defaults: { _controller: "SriniJobeetBundle:Job:show" }
     requirements:
         id:  \d+
-
-job_new:
-    pattern:  /new
-    defaults: { _controller: "SriniJobeetBundle:Job:new" }
-
-job_create:
-    pattern:  /create
-    defaults: { _controller: "SriniJobeetBundle:Job:create" }
-    requirements: { _method: post }
-
 job_edit:
     pattern:  /{token}/edit
     defaults: { _controller: "SriniJobeetBundle:Job:edit" }
