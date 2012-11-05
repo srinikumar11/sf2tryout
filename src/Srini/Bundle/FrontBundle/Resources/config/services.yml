@@ -5,3 +5,27 @@ services:
 #    srini_front.example:
 #        class: %srini_front.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
+
+
+services:
+    srini_main.menu_builder:
+        class: Srini\Bundle\FrontBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory"]
+
+    srini_main.menu.main:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory_service: srini_main.menu_builder
+        factory_method: createMainMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: main } # The alias is what is used to retrieve the menu
+            
+    srini_main.menu.sidebar:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory_service: srini_main.menu_builder
+        factory_method: createSidebarMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: sidebar } # The alias is what is used to retrieve the menu

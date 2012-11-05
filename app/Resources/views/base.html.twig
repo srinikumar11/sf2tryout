@@ -44,7 +44,9 @@
           </a>
           <a class="brand" href="{{ path('_welcome') }}">SRINIVASANK.COM</a>
           <div class="nav-collapse collapse">
+         
             <ul class="nav">
+                
               <li class="{{ app.request.get('_route') == '_welcome'?'active':'' }}"><a href="{{ path('_welcome') }}">Home</a></li>
               <li class="{{ app.request.get('_route') == 'srini_front_about'?'active':'' }}"><a href="{{ path('srini_front_about') }}">About</a></li>
               <li class="{{ app.request.get('_route') == '_contact'?'active':'' }}"><a href="{{ path('_contact') }}">Contact</a></li>
