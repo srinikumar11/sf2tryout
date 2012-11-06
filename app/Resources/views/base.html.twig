@@ -44,38 +44,7 @@
           </a>
           <a class="brand" href="{{ path('_welcome') }}">SRINIVASANK.COM</a>
           <div class="nav-collapse collapse">
-         
-            <ul class="nav">
-                
-              <li class="{{ app.request.get('_route') == '_welcome'?'active':'' }}"><a href="{{ path('_welcome') }}">Home</a></li>
-              <li class="{{ app.request.get('_route') == 'srini_front_about'?'active':'' }}"><a href="{{ path('srini_front_about') }}">About</a></li>
-              <li class="{{ app.request.get('_route') == '_contact'?'active':'' }}"><a href="{{ path('_contact') }}">Contact</a></li>
-              <li class="{{ app.request.get('_route') == 'srini_front_blog'?'active':'' }}"><a href="{{ path('srini_front_blog') }}">Blog</a></li>
-              <li class="{{ app.request.get('_route') == 'job'?'active':'' }}"><a href="{{ path('job') }}">Jobeet</a></li>
-              {% if is_granted("IS_AUTHENTICATED_FULLY") %}
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li class="nav-header">JOBEET ADMIN</li>
-                  <li><a href="{{ path('job') }}">Job</a></li>
-                  <li><a href="{{ path('category') }}">Job Category</a></li>
-                  
-                  
-                  <li class="divider"></li>
-                  <li class="nav-header">BLOG</li>
-                  <li><a href="{{ path('blog') }}">Blog</a></li>
-                  <li><a href="{{ path('admin_category') }}">Blog Category</a></li>
-                  <li class="divider"></li>
-                  <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
-                </ul>
-              </li>
-              
-              {% else %}
-              <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
-                {% endif %}
-              
-            </ul>
-                 
+                  {{ knp_menu_render('main',{'template':'SriniFrontBundle:Menu:knp_menu.html.twig','currentClass':'active'})}}
           </div><!--/.nav-collapse -->
         </div>
       </div>
