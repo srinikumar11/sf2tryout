@@ -42,7 +42,7 @@ class MenuBuilder extends ContainerAware
              $menu['Admin']->addChild('BLOG Admin')->setAttribute('class', 'nav-header');
              $menu['Admin']->addChild('Blog', array('route' => 'blog'));
              $menu['Admin']->addChild('Blog Category', array('route' => 'admin_category'))->setAttribute('divider_append', true);
-             $menu['Admin']->addChild('Logout', array('uri' => 'logout'));
+             $menu['Admin']->addChild('Logout', array('route' => 'fos_user_security_logout'));
          }
          else{
              $menu->addChild('Login', array('route' => 'fos_user_security_login'));
