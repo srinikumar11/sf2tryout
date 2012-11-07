@@ -13,7 +13,7 @@ class DefaultController extends Controller
         return $this->render('SriniFrontBundle:Default:index.html.twig', array('name' => $name));
     }
     
-    
+        
      public function contactAction()
     {
         $form = $this->get('form.factory')->create(new ContactType());
@@ -55,13 +55,7 @@ class DefaultController extends Controller
     
      public function aboutAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('SriniBlogBundle:Blog')->findAll();
-
-        return $this->render('SriniFrontBundle:Default:blog.html.twig', array(
-            'entities' => $entities,
-        ));
+       return $this->render('SriniFrontBundle:Default:about.html.twig');
     }
     
        public function showAction($id, $slug)

@@ -16,7 +16,7 @@ _welcome:
     
 srini_front_about:
     pattern:  /about
-    defaults: { _controller: SriniFrontBundle:Default:blog }
+    defaults: { _controller: SriniFrontBundle:Default:about }
 
 front_blog_show:
     prefix: /blog
