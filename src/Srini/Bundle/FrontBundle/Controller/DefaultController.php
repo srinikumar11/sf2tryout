@@ -21,19 +21,26 @@ class DefaultController extends Controller
         $request = $this->get('request');
         if ('POST' == $request->getMethod()) {
             $form->bindRequest($request);
+            
             if ($form->isValid()) {
-               
+                $formData = $form->getData();
+               $mailMessage = "<br />";
+               $mailMessage .="<b>Name :</b>".$formData['name']."<br />";
+               $mailMessage .="<b>Email :</b>".$formData['email']."<br />";
+               $mailMessage .="<b>Name :</b>".$formData['message']."<br />";
                 $mailer = $this->get('mailer');
-                $message = \Swift_Message::newInstance()
+                $message = \Swift_Message::newInstance(null,null,"text/html",null)
+                        
                     ->setSubject('Hello Email')
                     ->setFrom('admin@srinivasank.com')
                     ->setTo('srinikumar11@gmail.com')
-                    ->setBody("This is a sample")
+                    ->setBody($mailMessage)
+                        
                 ;
                 $this->get('mailer')->send($message);
-                $this->get('session')->setFlash('notice', 'Message sent!');
+                $this->get('session')->getFlashBag()->add('notice', 'Message Sent');
 
-                return new RedirectResponse($this->generateUrl('_contact'));
+                return new \Symfony\Component\HttpFoundation\RedirectResponse($this->generateUrl('_contact'));
             }
         }
 
