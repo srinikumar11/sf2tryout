@@ -16,9 +16,14 @@ class BlogType extends AbstractType
             ->add('blog','textarea')
             ->add('author')
             ->add('published')
-//            ->add('created_at')
-//            ->add('updated_at')
+                
             ;
+        $builder->add('tags', 'collection', array(
+            'type'         => new TagType(),
+            'allow_add'    => true,
+            'allow_delete' => true,
+            'by_reference' => false,
+        ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

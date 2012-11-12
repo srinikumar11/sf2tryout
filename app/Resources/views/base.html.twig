@@ -101,10 +101,23 @@ margin: 20px 0px 20px 25px !important;
     <script src="/assets/js/bootstrap-carousel.js"></script>
     <script src="/assets/js/bootstrap-typeahead.js"></script>
     <script>
-    $(document).ready(function(){
-        $('.carousel').carousel()
-    })
+    function add() {
+        var collectionHolder = $('#srini_bundle_blogbundle_blogtype_tags_control_group');
+        var prototype = collectionHolder.attr('data-prototype');
+        form = prototype.replace(/__name__label__/g, collectionHolder.children().length -1);
+        form = prototype.replace(/__name__/g, collectionHolder.children().length -1);
+        form =  $(form).filter('div').first().html($(form).html() +'<a class="delete_link" href="#">remove</a>');
+        collectionHolder.append(form);
+    }
     
+    $('a.jslink').click(function(event){
+        event.preventDefault();
+        add();
+    });
+    
+    $(document).on('click', 'a.delete_link',function(event){
+        $(event.currentTarget).parent().remove();
+    });
 </script>
         {% block javascripts %}
 {% endblock %}

@@ -1,0 +1,34 @@
+Srini\Bundle\BlogBundle\Entity\Tag:
+  type: entity
+  repositoryClass: Srini\Bundle\BlogBundle\Entity\TagRepository
+  table: tag
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      length: 255
+    created:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: create
+    updated:
+      type: datetime
+      gedmo:
+        timestampable:
+          on: update
+  manyToOne:
+    blog:
+      targetEntity: Blog
+      cascade: {  }
+      mappedBy: null
+      inversedBy: tags
+      joinColumns:
+        blog_id:
+          referencedColumnName: id
+      orphanRemoval: false
+  lifecycleCallbacks: {  }

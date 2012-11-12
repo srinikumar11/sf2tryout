@@ -1,10 +1,32 @@
 {% extends '::base.html.twig' %}
 {% block body %}
+<script>
+ 
+function addTagForm(collectionHolder, $newLinkLi) {
+    // Get the data-prototype we explained earlier
+    var prototype = collectionHolder.attr('data-prototype');
 
+    // Replace '__name__' in the prototype's HTML to
+    // instead be a number based on the current collection's length.
+    var newForm = prototype.replace(/__name__/g, collectionHolder.children().length);
+
+    // Display the form in the page in an li, before the "Add a tag" link li
+    var $newFormLi = $('<li></li>').append(newForm);
+    $newLinkLi.before($newFormLi);
+}
+    </script>
 <h1>Blog creation</h1>
 
 <form action="{{ path('blog_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
+      
+<ul class="record_actions">
+    <li>
+        <a href="#" class="jslink">
+            Add a tag
+        </a>
+    </li>
+</ul>
     <p>
         <button type="submit">Create</button>
     </p>
@@ -19,3 +41,18 @@
 </ul>
 
 {% endblock %}
+
+{% macro widget_prototype(widget, remove_text) %}
+    {% if widget.get('prototype') %}
+        {% set form = widget.get('prototype') %}
+        {% set name = widget.get('prototype').get('name') %}
+    {% else %}
+        {% set form = widget %}
+        {% set name = widget.get('full_name') %}
+    {% endif %}
+
+    <div data-content="{{ name }}">
+        <a class="btn-remove" data-related="{{ name }}">{{ remove_text }}</a>
+        {{ form_widget(form) }}
+    </div>
+{% endmacro %}

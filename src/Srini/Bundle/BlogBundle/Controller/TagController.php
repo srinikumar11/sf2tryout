@@ -5,78 +5,74 @@ namespace Srini\Bundle\BlogBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Srini\Bundle\BlogBundle\Entity\Blog;
 use Srini\Bundle\BlogBundle\Entity\Tag;
-use Srini\Bundle\BlogBundle\Form\BlogType;
 use Srini\Bundle\BlogBundle\Form\TagType;
+
 /**
- * Blog controller.
+ * Tag controller.
  *
  */
-class BlogController extends Controller
+class TagController extends Controller
 {
     /**
-     * Lists all Blog entities.
+     * Lists all Tag entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('SriniBlogBundle:Blog')->findAll();
+        $entities = $em->getRepository('SriniBlogBundle:Tag')->findAll();
 
-        return $this->render('SriniBlogBundle:Blog:index.html.twig', array(
+        return $this->render('SriniBlogBundle:Tag:index.html.twig', array(
             'entities' => $entities,
         ));
     }
 
     /**
-     * Finds and displays a Blog entity.
+     * Finds and displays a Tag entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SriniBlogBundle:Blog')->find($id);
+        $entity = $em->getRepository('SriniBlogBundle:Tag')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Blog entity.');
+            throw $this->createNotFoundException('Unable to find Tag entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('SriniBlogBundle:Blog:show.html.twig', array(
+        return $this->render('SriniBlogBundle:Tag:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
-     * Displays a form to create a new Blog entity.
+     * Displays a form to create a new Tag entity.
      *
      */
     public function newAction()
     {
-        $entity = new Blog();
-        $form   = $this->createForm(new BlogType(), $entity);
+        $entity = new Tag();
+        $form   = $this->createForm(new TagType(), $entity);
 
-        $tag1 = new Tag();
-        $entity->addTags($tag1);
-  
-        return $this->render('SriniBlogBundle:Blog:new.html.twig', array(
+        return $this->render('SriniBlogBundle:Tag:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Creates a new Blog entity.
+     * Creates a new Tag entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity  = new Blog();
-        $form = $this->createForm(new BlogType(), $entity);
+        $entity  = new Tag();
+        $form = $this->createForm(new TagType(), $entity);
         $form->bind($request);
 
         if ($form->isValid()) {
@@ -84,33 +80,33 @@ class BlogController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('blog_show', array('id' => $entity->getId(), 'slug' => $entity->getSlug())));
+            return $this->redirect($this->generateUrl('admin_tag_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('SriniBlogBundle:Blog:new.html.twig', array(
+        return $this->render('SriniBlogBundle:Tag:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing Blog entity.
+     * Displays a form to edit an existing Tag entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SriniBlogBundle:Blog')->find($id);
+        $entity = $em->getRepository('SriniBlogBundle:Tag')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Blog entity.');
+            throw $this->createNotFoundException('Unable to find Tag entity.');
         }
 
-        $editForm = $this->createForm(new BlogType(), $entity);
+        $editForm = $this->createForm(new TagType(), $entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('SriniBlogBundle:Blog:edit.html.twig', array(
+        return $this->render('SriniBlogBundle:Tag:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -118,31 +114,31 @@ class BlogController extends Controller
     }
 
     /**
-     * Edits an existing Blog entity.
+     * Edits an existing Tag entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('SriniBlogBundle:Blog')->find($id);
+        $entity = $em->getRepository('SriniBlogBundle:Tag')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Blog entity.');
+            throw $this->createNotFoundException('Unable to find Tag entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createForm(new BlogType(), $entity);
+        $editForm = $this->createForm(new TagType(), $entity);
         $editForm->bind($request);
 
         if ($editForm->isValid()) {
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('blog_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('admin_tag_edit', array('id' => $id)));
         }
 
-        return $this->render('SriniBlogBundle:Blog:edit.html.twig', array(
+        return $this->render('SriniBlogBundle:Tag:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -150,7 +146,7 @@ class BlogController extends Controller
     }
 
     /**
-     * Deletes a Blog entity.
+     * Deletes a Tag entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -160,17 +156,17 @@ class BlogController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('SriniBlogBundle:Blog')->find($id);
+            $entity = $em->getRepository('SriniBlogBundle:Tag')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Blog entity.');
+                throw $this->createNotFoundException('Unable to find Tag entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('blog'));
+        return $this->redirect($this->generateUrl('admin_tag'));
     }
 
     private function createDeleteForm($id)

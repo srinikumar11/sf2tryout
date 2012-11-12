@@ -3,12 +3,13 @@
 namespace Srini\Bundle\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Srini\Bundle\BlogBundle\Entity\Blog
  */
-class Blog
-{
+class Blog {
+
     /**
      * @var integer $id
      */
@@ -20,6 +21,11 @@ class Blog
     private $title;
 
     /**
+     * @ORM\ManyToMany(targetEntity="Tag", cascade={"persist"})
+     */
+    private $tags;
+
+    /**
      * @var string $blog
      */
     private $blog;
@@ -29,14 +35,12 @@ class Blog
      */
     private $published;
 
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -46,10 +50,9 @@ class Blog
      * @param string $title
      * @return Blog
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
-    
+
         return $this;
     }
 
@@ -58,8 +61,7 @@ class Blog
      *
      * @return string 
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -69,10 +71,9 @@ class Blog
      * @param string $blog
      * @return Blog
      */
-    public function setBlog($blog)
-    {
+    public function setBlog($blog) {
         $this->blog = $blog;
-    
+
         return $this;
     }
 
@@ -81,8 +82,7 @@ class Blog
      *
      * @return string 
      */
-    public function getBlog()
-    {
+    public function getBlog() {
         return $this->blog;
     }
 
@@ -92,10 +92,9 @@ class Blog
      * @param boolean $published
      * @return Blog
      */
-    public function setPublished($published)
-    {
+    public function setPublished($published) {
         $this->published = $published;
-    
+
         return $this;
     }
 
@@ -104,10 +103,10 @@ class Blog
      *
      * @return boolean 
      */
-    public function getPublished()
-    {
+    public function getPublished() {
         return $this->published;
     }
+
     /**
      * @var \DateTime $created_at
      */
@@ -118,17 +117,15 @@ class Blog
      */
     private $updated_at;
 
-
     /**
      * Set created_at
      *
      * @param \DateTime $createdAt
      * @return Blog
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->created_at = $createdAt;
-    
+
         return $this;
     }
 
@@ -137,8 +134,7 @@ class Blog
      *
      * @return \DateTime 
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->created_at;
     }
 
@@ -148,10 +144,9 @@ class Blog
      * @param \DateTime $updatedAt
      * @return Blog
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updated_at = $updatedAt;
-    
+
         return $this;
     }
 
@@ -160,15 +155,14 @@ class Blog
      *
      * @return \DateTime 
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updated_at;
     }
+
     /**
      * @var Srini\Bundle\BlogBundle\Entity\Category
      */
     private $category;
-
 
     /**
      * Set category
@@ -176,10 +170,9 @@ class Blog
      * @param Srini\Bundle\BlogBundle\Entity\Category $category
      * @return Blog
      */
-    public function setCategory(\Srini\Bundle\BlogBundle\Entity\Category $category = null)
-    {
+    public function setCategory(\Srini\Bundle\BlogBundle\Entity\Category $category = null) {
         $this->category = $category;
-    
+
         return $this;
     }
 
@@ -188,10 +181,10 @@ class Blog
      *
      * @return Srini\Bundle\BlogBundle\Entity\Category 
      */
-    public function getCategory()
-    {
+    public function getCategory() {
         return $this->category;
     }
+
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection
      */
@@ -200,21 +193,20 @@ class Blog
     /**
      * Constructor
      */
-    public function __construct()
-    {
-        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
+    public function __construct() {
+        $this->comments = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
-    
+
     /**
      * Add comments
      *
      * @param Srini\Bundle\BlogBundle\Entity\Comment $comments
      * @return Blog
      */
-    public function addComment(\Srini\Bundle\BlogBundle\Entity\Comment $comments)
-    {
+    public function addComment(\Srini\Bundle\BlogBundle\Entity\Comment $comments) {
         $this->comments[] = $comments;
-    
+
         return $this;
     }
 
@@ -223,8 +215,7 @@ class Blog
      *
      * @param Srini\Bundle\BlogBundle\Entity\Comment $comments
      */
-    public function removeComment(\Srini\Bundle\BlogBundle\Entity\Comment $comments)
-    {
+    public function removeComment(\Srini\Bundle\BlogBundle\Entity\Comment $comments) {
         $this->comments->removeElement($comments);
     }
 
@@ -233,14 +224,14 @@ class Blog
      *
      * @return Doctrine\Common\Collections\Collection 
      */
-    public function getComments()
-    {
+    public function getComments() {
         return $this->comments;
     }
-    
-    public function __toString(){
+
+    public function __toString() {
         return $this->getTitle();
     }
+
     /**
      * @var string $author
      */
@@ -251,17 +242,15 @@ class Blog
      */
     private $slug;
 
-
     /**
      * Set author
      *
      * @param string $author
      * @return Blog
      */
-    public function setAuthor($author)
-    {
+    public function setAuthor($author) {
         $this->author = $author;
-    
+
         return $this;
     }
 
@@ -270,8 +259,7 @@ class Blog
      *
      * @return string 
      */
-    public function getAuthor()
-    {
+    public function getAuthor() {
         return $this->author;
     }
 
@@ -281,10 +269,9 @@ class Blog
      * @param string $slug
      * @return Blog
      */
-    public function setSlug($slug)
-    {
+    public function setSlug($slug) {
         $this->slug = $slug;
-    
+
         return $this;
     }
 
@@ -293,8 +280,23 @@ class Blog
      *
      * @return string 
      */
-    public function getSlug()
-    {
+    public function getSlug() {
         return $this->slug;
+    }
+
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    public function setTags(ArrayCollection $tags)
+    {
+        $this->tags = $tags;
+    }
+
+     public function addTags(\Srini\Bundle\BlogBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+        $tags->setBlog($this);
     }
 }
