@@ -1,5 +1,5 @@
 {
-    "hash": "705ae9313c1a750bd4bfe2ae16b1ff30",
+    "hash": "4d2b8de969412a45b5eb786ee8986b1c",
     "packages": [
         {
             "name": "doctrine/common",
@@ -1640,6 +1640,24 @@
             ]
         },
         {
+            "name": "thomas-mcdonald/bootstrap-sass",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thomas-mcdonald/bootstrap-sass.git",
+                "reference": "master"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/thomas-mcdonald/bootstrap-sass/zipball/master",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library",
+            "installation-source": "source",
+            "time": "1351694647"
+        },
+        {
             "name": "twig/extensions",
             "version": "v1.0.0-alpha",
             "source": {
@@ -1765,6 +1783,7 @@
         "stfalcon/tinymce-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
-        "mopa/bootstrap-bundle": 20
+        "mopa/bootstrap-bundle": 20,
+        "thomas-mcdonald/bootstrap-sass": 20
     }
 }
